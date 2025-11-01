@@ -40,5 +40,90 @@ fetch('https://fakestoreapi.com/users')
     })
   });
 
+  class BankAccount{
+    #balance;
 
-  
+    constructor (owner, balance) {
+      this.owner = owner
+      this.balance = balance
+    }
+
+    pulTushurish(amount){
+      this.#balance += amount;
+    }
+
+    pulMiqdori() {
+      return `${this.owner}'s balanse is $${this.balance}`;
+    }
+
+
+    
+  }
+
+      const acc = new BankAccount ("IdenityNull", 1000);
+    acc.pulTushurish(500);
+    console.log(acc.pulMiqdori());
+
+// encaptulation usuli bu 
+
+// class CoffeMashinasi {
+//   boshlash (){
+//     console.log("Mashina ishga tushdi");
+//   }
+
+//   makeCofe() {
+//     console.log("Coffe tayorlanmoqda"); 
+//   }
+
+//   cofeYaratish(){
+//     this.boshlash();
+//     this.makeCofe()
+//     console.log("koffe tayyor");
+//   }
+// }
+
+// const mashina = new CoffeMashinasi();
+// mashina.cofeYaratish();
+
+
+// abstraction
+
+class hayvon {
+  constructor (name){
+    this.name = name
+  }
+
+  ovoz() {
+    console.log(`${this.name} ovoz chiqaryabdi`);
+  }
+}
+
+  class Mushuk extends hayvon {
+    ovoz () {
+      console.log(`${this.name} mewolaydi`); 
+    }
+  }
+
+  const mushuk = new Mushuk("Mushuk")
+
+  mushuk.ovoz()
+
+  //inheritance 
+
+  class it extends hayvon {
+    ovoz (){
+      console.log("Bu it");
+      
+    }
+  }
+
+  class mol extends hayvon {
+    ovoz(){
+      console.log("bu mol");
+      
+    }
+  }
+
+  const hayvonlar = [new it(), new mol()]
+  hayvonlar.forEach(hayvon => hayvon.ovoz())
+  console.log(hayvonlar);
